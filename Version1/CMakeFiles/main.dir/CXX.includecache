@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/CPP-Lab/Lab5/Cmake-Beginner/Version1/factorial.cpp
+functions.h
+/home/CPP-Lab/Lab5/Cmake-Beginner/Version1/functions.h
+
+/home/CPP-Lab/Lab5/Cmake-Beginner/Version1/functions.h
+
+/home/CPP-Lab/Lab5/Cmake-Beginner/Version1/main.cpp
+iostream
+-
+functions.h
+/home/CPP-Lab/Lab5/Cmake-Beginner/Version1/functions.h
+
+/home/CPP-Lab/Lab5/Cmake-Beginner/Version1/printhello.cpp
+iostream
+-
+functions.h
+/home/CPP-Lab/Lab5/Cmake-Beginner/Version1/functions.h
+

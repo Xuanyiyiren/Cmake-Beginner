@@ -1,0 +1,3 @@
+/home/CPP-Lab/Lab5/Cmake-Beginner/Version1/CMakeFiles/rebuild_cache.dir
+/home/CPP-Lab/Lab5/Cmake-Beginner/Version1/CMakeFiles/main.dir
+/home/CPP-Lab/Lab5/Cmake-Beginner/Version1/CMakeFiles/edit_cache.dir
