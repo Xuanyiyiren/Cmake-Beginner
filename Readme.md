@@ -139,27 +139,92 @@ add_executable(main main.cpp factorial.cpp printhello.cpp)
 ```cmake
 cmake_minimum_required(VERSION 3.10)
 
+# 设置目标名称
+set(TARGET_NAME main)
+
 # 声明工程名称
-project(Cmake_Version2)
+project(${TARGET_NAME})
 
 # 讲当前目录./ 下的所有源码文件保存到 SRC_LIST 变量中
 aux_source_directory(. SRC_LIST)
 
 # 声明生成的目标文件和依赖代码
-add_executable(main ${SRC_LIST})
+add_executable(${TARGET_NAME} ${SRC_LIST})
 ```
 
-这个版本中，我们的第三条代码，自动将指定目录下的源码文件保存到变量中（变量的使用和 Makefile 类似），这样就不用一个一个手列了。运行方法和结果同 Version1 。
+这个版本中
 
-# Version3
+* 我们的第二条代码，设置了一个目标名称，以便多次引用
+* 我们的第四条代码，自动将指定目录下的源码文件保存到变量中（变量的使用和 Makefile 类似），这样就不用一个一个手列了。运行方法和结果同 Version1 。
 
 但是另一个问题是 CMake 会生成一堆莫名其妙的文件，使得我们的目录变得杂乱不堪。我们可以将他们统一放到同一个目录下，这样就会整洁很多。
 
-那不妨更整洁一点，我们通常把 `.cpp`​ 文件和 `.h`​ 文件分开，分别放到 src 目录和 include 目录下面。我们再建立一个 build 子目录，专门用于放置 CMake 产生的各种文件。同时建立一个 bin 子目录，专门用于存放可执行文件。
+我们可以**建立一个 build 子目录**，专门用于放置 CMake 产生的各种文件。同时建立一个 bin 子目录，专门用于存放可执行文件。
 
-在准备执行代码之前，我们的目录应该长这样
+执行 CMake 命令时，请先 cd 到 build 目录下，然后运行 `cmake ..`​。这样就会使用上一级目录的 CMakeLists.txt 文件，并且产生的文件会被放到 build 目录下。可以看到 Makefile 文件也在这里。我们接着运行 `make`​ 命令，可以看到 可执行文件 main 已经生成在了 bin 目录下。
 
-```shell
+最终我们的文件目录会长成这样
+
+```bash
+.
+├── CMakeLists.txt
+├── build
+│   ├── CMakeCache.txt
+│   ├── CMakeFiles
+│   │   ├── 3.10.2
+│   │   │   ├── CMakeCCompiler.cmake
+│   │   │   ├── CMakeCXXCompiler.cmake
+│   │   │   ├── CMakeDetermineCompilerABI_C.bin
+│   │   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│   │   │   ├── CMakeSystem.cmake
+│   │   │   ├── CompilerIdC
+│   │   │   │   ├── CMakeCCompilerId.c
+│   │   │   │   ├── a.out
+│   │   │   │   └── tmp
+│   │   │   └── CompilerIdCXX
+│   │   │       ├── CMakeCXXCompilerId.cpp
+│   │   │       ├── a.out
+│   │   │       └── tmp
+│   │   ├── CMakeDirectoryInformation.cmake
+│   │   ├── CMakeOutput.log
+│   │   ├── CMakeTmp
+│   │   ├── Makefile.cmake
+│   │   ├── Makefile2
+│   │   ├── TargetDirectories.txt
+│   │   ├── cmake.check_cache
+│   │   ├── feature_tests.bin
+│   │   ├── feature_tests.c
+│   │   ├── feature_tests.cxx
+│   │   ├── main.dir
+│   │   │   ├── CXX.includecache
+│   │   │   ├── DependInfo.cmake
+│   │   │   ├── build.make
+│   │   │   ├── cmake_clean.cmake
+│   │   │   ├── depend.internal
+│   │   │   ├── depend.make
+│   │   │   ├── factorial.cpp.o
+│   │   │   ├── flags.make
+│   │   │   ├── link.txt
+│   │   │   ├── main.cpp.o
+│   │   │   ├── printhello.cpp.o
+│   │   │   └── progress.make
+│   │   └── progress.marks
+│   ├── Makefile
+│   ├── cmake_install.cmake
+│   └── main
+├── factorial.cpp
+├── functions.h
+├── main.cpp
+└── printhello.cpp
+
+9 directories, 40 files
+```
+
+# Version3
+
+那不妨更整洁一点，我们通常把 `.cpp`​ 文件和 `.h`​ 文件分开，分别放到 src 目录和 include 目录下面。在准备执行代码之前，我们的目录应该长这样
+
+```bash
 .
 ├── CMakeLists.txt
 ├── bin

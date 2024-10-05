@@ -1,0 +1,3 @@
+/home/CPP-Lab/LabForCMake/Version2/build/CMakeFiles/rebuild_cache.dir
+/home/CPP-Lab/LabForCMake/Version2/build/CMakeFiles/main.dir
+/home/CPP-Lab/LabForCMake/Version2/build/CMakeFiles/edit_cache.dir

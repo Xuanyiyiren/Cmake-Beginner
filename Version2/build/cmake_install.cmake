@@ -1,4 +1,4 @@
-# Install script for directory: /home/CPP-Lab/Lab5/Cmake-Beginner/Version2
+# Install script for directory: /home/CPP-Lab/LabForCMake/Version2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/CPP-Lab/Lab5/Cmake-Beginner/Version2/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/CPP-Lab/LabForCMake/Version2/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
